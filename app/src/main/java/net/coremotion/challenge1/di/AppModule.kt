@@ -52,7 +52,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideLoginRepository(api: ApiService): UserRepository = UserRepository(api)
+    fun provideUserRepository(api: ApiService): UserRepository = UserRepository(api)
 
 
 }

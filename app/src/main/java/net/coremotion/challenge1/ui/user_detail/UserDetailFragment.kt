@@ -1,11 +1,9 @@
 package net.coremotion.challenge1.ui.user_detail
 
-import android.util.Log.d
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import net.coremotion.challenge1.common.Resource
 import net.coremotion.challenge1.databinding.FragmentUserDetailBinding
@@ -21,8 +19,8 @@ class UserDetailFragment :
 
 
     override fun start() {
-        observes()
         viewModel.getUserDetail(args.userId)
+        observes()
         setListeners()
     }
 

@@ -15,43 +15,42 @@ import net.coremotion.challenge1.ui.users.source.UsersAdapter
 class UsersFragment : BaseFragment<UsersFragmentBinding>(UsersFragmentBinding::inflate) {
 
     private val viewModel: UsersViewModel by viewModels()
-    private lateinit var usersAdapter: UsersAdapter
+    private val usersAdapter by lazy { UsersAdapter() }
 
     override fun start() {
-        binding.swipeRefresh.isRefreshing = true
         initUsersRecyclerView()
         setObservers()
         setListeners()
     }
 
     private fun setListeners() {
-        binding.swipeRefresh.setOnRefreshListener {
-            usersAdapter.refresh()
-        }
+
     }
 
     private fun initUsersRecyclerView() {
+        usersAdapter.userItemOnClick = {
+            if (it != null) {
+                openUserDetail(it)
+            }
+
+        }
         binding.usersRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            usersAdapter = UsersAdapter().apply {
-                userItemOnClick = {
-                    openUserDetail(it)
-                }
-            }
             adapter = usersAdapter
         }
     }
 
     private fun openUserDetail(userId: Int) {
-        UsersFragmentDirections.actionNewsFragmentToUserDetailFragment(
-            userId
+        findNavController().navigate(
+            UsersFragmentDirections.actionNewsFragmentToUserDetailFragment(
+                userId
+            )
         )
     }
 
     private fun setObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.usersFlow().collectLatest { pagingData ->
-                binding.swipeRefresh.isRefreshing = false
+            viewModel.usersFlow().collect { pagingData ->
                 usersAdapter.submitData(pagingData)
             }
         }

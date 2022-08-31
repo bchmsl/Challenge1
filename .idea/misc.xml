@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bchmsl/AndroidStudioProjects/challenge12/app/src/main/res/layout/activity_main.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/bchmsl/AndroidStudioProjects/challenge12/app/src/main/res/layout/fragment_user_detail.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/bchmsl/AndroidStudioProjects/challenge12/app/src/main/res/layout/item_user.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/bchmsl/AndroidStudioProjects/challenge12/app/src/main/res/layout/users_fragment.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27395833333333336" />
         <entry key="app/src/main/res/layout/fragment_user_detail.xml" value="0.30480072463768115" />
         <entry key="app/src/main/res/layout/item_user.xml" value="0.2875" />
